@@ -1,7 +1,11 @@
 package com.zero.exception.common.exception;
 
 import com.zero.exception.common.interfaces.BaseErrorInfoInterface;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class BizException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
@@ -42,24 +46,8 @@ public class BizException extends RuntimeException {
 		this.errorCode = errorCode;
 		this.errorMsg = errorMsg;
 	}
-	
 
-	public String getErrorCode() {
-		return errorCode;
-	}
-
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
-	}
-
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
-	}
-
+	@Override
 	public String getMessage() {
 		return errorMsg;
 	}
